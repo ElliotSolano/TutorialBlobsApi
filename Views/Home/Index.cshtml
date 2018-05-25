@@ -1,0 +1,35 @@
+﻿@model List<TutorialBlobsApi.Models.Blobs>
+<div class="jumbotron">
+   <div class="row">
+       <div class="col-md-8">
+           <h3>
+               Almacenamiento de Blobs
+           </h3>
+           <div>
+               @using (Html.BeginForm("Archivo", "Home", FormMethod.Post, new { enctype = "multipart/form-data"}))
+               {
+                   <input type="file" name="fichero" class="form-control" />
+                   <p/>
+                   <input type="submit" name="btn1" value="guardar" class="btn btn-info" />
+               }
+           </div>
+       </div>
+   </div>
+   <br/>
+    <div class="row">
+        <div class="col-md-8">
+            @if (Model != null)
+            {
+                <dl>
+                    <h3>Lista de Imagenes</h3>
+                    @foreach (var img in Model)
+                    {
+                        <dd>
+                            <span>@img.Nombre</span>
+                        </dd>
+                    }
+                </dl>
+            }
+        </div>
+    </div>
+</div>
